@@ -39,7 +39,7 @@ class App extends Component {
         {first_modal && 
           <Modal 
             header="Do you want to delete this file?" 
-            closeButton={false} 
+            closeButton={true} 
             modalClass="modal-action_window--error"
             closeModal={() => this.toggleModal('first_modal')}
             text="Once you delete this file, it won’t be possible to undo this action. 
