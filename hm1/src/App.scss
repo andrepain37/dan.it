@@ -39,9 +39,6 @@
     background-color:#137510;
     .modal-action_window__header{
       background-color: #1F9938;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
     .modal-action__button{
       background-color: #158221;
@@ -49,7 +46,9 @@
   } 
     &__header{
       padding: 20px 30px;
-      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       border-radius: 8px 8px 0 0;
       h2{
         font-weight: bold;
