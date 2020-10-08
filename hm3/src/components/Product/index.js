@@ -5,21 +5,26 @@ import PropTypes from 'prop-types';
 
 const Product = (props) => {
 
-    const {id, image, color, name, price, addToCart, addToWishlist, inWish, inCart, forWishList, forCart} = props
+    const {id, image, color, name, price, addToCart, toggleWishlist, inWish, inCart, forWishList, forCart} = props
 
     
         let textButton = '';
         let ButtonAction = '';
 
-        if (forCart) {
+        if (forCart ) {
             textButton = 'Delete';
-            ButtonAction = <div className="modal-action_window__close" onClick={() => addToWishlist(id)}></div>
-        } else if(forWishList){
-            
+            ButtonAction = <div className="modal-action_window__close" onClick={() => toggleWishlist(id)}></div>  
         } else{
-            textButton = inCart ? 'Added' : 'Add to cart';
+
+            if (forWishList) {
+                textButton = 'Delete';
+            }else{
+                textButton = inCart ? 'Added' : 'Add to cart';
+            }
+
+            
             ButtonAction = 
-            <svg onClick={() => addToWishlist(id)} className={"product-list_card_image--like " + (inWish && 'liked')} version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280.000000 1189.000000" preserveAspectRatio="xMidYMid meet">
+            <svg onClick={() => toggleWishlist(id)} className={"product-list_card_image--like " + (inWish && 'liked')} version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280.000000 1189.000000" preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(0.000000,1189.000000) scale(0.100000,-0.100000)" stroke="none">
                     <path d="M3250 11884 c-25 -2 -106 -11 -180 -20 -1485 -172 -2704 -1295 -3001
                     -2764 -133 -660 -67 -1507 171 -2223 252 -753 675 -1411 1397 -2172 342 -360
@@ -69,7 +74,7 @@ Product.propTypes = {
         PropTypes.number.isRequired
     ]),
     addToCart: PropTypes.func.isRequired,
-    addToWishlist: PropTypes.func.isRequired,
+    toggleWishlist: PropTypes.func.isRequired,
     inWish: PropTypes.bool,
     inCart: PropTypes.bool
   }

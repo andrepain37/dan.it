@@ -7,9 +7,9 @@ class ProductList extends PureComponent {
 
     render() { 
 
-        const {products, addToCart, addToWishlist, wishlist} = this.props
+        const {products, addToCart, toggleWishlist, wishlist} = this.props
         const prodList = products.map((prod) => {
-            return <Product key={prod.id} id={prod.id} inWish={wishlist.includes(prod.id)} addToCart={addToCart} addToWishlist={addToWishlist} name={prod.name} color={prod.color} image={prod.image} price={prod.price} />
+            return <Product key={prod.id} id={prod.id} inWish={wishlist.includes(prod.id)} addToCart={addToCart} toggleWishlist={toggleWishlist} name={prod.name} color={prod.color} image={prod.image} price={prod.price} />
         })
 
         return ( 
@@ -23,7 +23,7 @@ class ProductList extends PureComponent {
 ProductList.propTypes = {
     products: PropTypes.array.isRequired,
     addToCart: PropTypes.func.isRequired,
-    addToWishlist: PropTypes.func.isRequired,
+    toggleWishlist: PropTypes.func.isRequired,
     wishlist: PropTypes.array.isRequired,
 }
   

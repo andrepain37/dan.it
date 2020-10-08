@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import './App.scss';
 import AppRoutes from './routes/AppRoutes';
+import Header from './components/Header';
 
 
 const App = () => {
@@ -54,9 +55,14 @@ const App = () => {
     localStorage.setItem('cart', JSON.stringify(newCart));
   }
 
-  const addToWishlist = (id) => {
-    const newWishList = [...wishlist, id]
-
+  const toggleWishlist = (id) => {
+    let newWishList = []
+    if (wishlist.includes(id)) {
+      newWishList = wishlist.filter(wish_id => wish_id !== id)
+    }else{
+      newWishList = [...wishlist, id]
+    }
+    
     setWishlist(newWishList)
     localStorage.setItem('wishlist', JSON.stringify(newWishList));
   }
@@ -67,7 +73,10 @@ const App = () => {
 
   
   return ( 
-    <AppRoutes addToWishlist={addToWishlist} PrepareDelFromCart={PrepareDelFromCart} deletedFromCart={deletedFromCart} delFromCart={delFromCart} addToCart={addToCart} toggleModal={toggleModal} PrepareAddToCart={PrepareAddToCart} cart={cart} products={products} addedToCart={addedToCart} wishlist={wishlist} showModal={showModal} />
+    <>
+      <Header />
+      <AppRoutes toggleWishlist={toggleWishlist} PrepareDelFromCart={PrepareDelFromCart} deletedFromCart={deletedFromCart} delFromCart={delFromCart} addToCart={addToCart} toggleModal={toggleModal} PrepareAddToCart={PrepareAddToCart} cart={cart} products={products} addedToCart={addedToCart} wishlist={wishlist} showModal={showModal} />
+    </>
   );
   
 }

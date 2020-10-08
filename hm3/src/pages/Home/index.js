@@ -7,7 +7,7 @@ import ProductList from "../../components/ProductList";
 const Home = (props) => {
 
 
-    const {toggleModal, addedToCart, addToCart, PrepareAddToCart, addToWishlist, cart, wishlist, products, showModal} = props
+    const {toggleModal, addedToCart, addToCart, PrepareAddToCart, toggleWishlist, cart, wishlist, products, showModal} = props
 
 
     return (
@@ -20,7 +20,7 @@ const Home = (props) => {
                 wishlist={wishlist}
                 cart={cart}
                 addToCart={PrepareAddToCart}
-                addToWishlist={addToWishlist}
+                toggleWishlist={toggleWishlist}
                 />
             )}
             {showModal && (

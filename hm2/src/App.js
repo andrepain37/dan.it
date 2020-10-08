@@ -35,7 +35,7 @@ class App extends Component {
     localStorage.setItem('cart', JSON.stringify([...cart, id]));
   }
 
-  addToWishlist = (id) => {
+  toggleWishlist = (id) => {
     const {wishlist} = this.state
     this.setState({
       wishlist: [...wishlist, id]
@@ -61,7 +61,7 @@ class App extends Component {
     return ( 
       <>
         <h1>bestsellers</h1>
-        {products && <ProductList products={products} wishlist={wishlist} addToCart={this.addToCart} addToWishlist={this.addToWishlist} />}
+        {products && <ProductList products={products} wishlist={wishlist} addToCart={this.addToCart} toggleWishlist={this.toggleWishlist} />}
         {addedProduct && 
           <Modal 
             header="Your product added to cart!" 

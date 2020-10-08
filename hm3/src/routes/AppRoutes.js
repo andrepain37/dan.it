@@ -13,18 +13,18 @@ import NotFound from '../pages/NotFound';
 const AppRoutes = (props) => {
     
 
-    const {addToWishlist, addToCart, toggleModal, deletedFromCart, delFromCart, PrepareDelFromCart, PrepareAddToCart, cart, products, addedToCart, wishlist, showModal} = props
+    const {toggleWishlist, addToCart, toggleModal, deletedFromCart, delFromCart, PrepareDelFromCart, PrepareAddToCart, cart, products, addedToCart, wishlist, showModal} = props
     console.log(cart)
     return(
         <Switch>
             <Route exact path="/">
-                <Home addToWishlist={addToWishlist} addToCart={addToCart} toggleModal={toggleModal} PrepareAddToCart={PrepareAddToCart} cart={cart} products={products} addedToCart={addedToCart} wishlist={wishlist} showModal={showModal} />
+                <Home toggleWishlist={toggleWishlist} addToCart={addToCart} toggleModal={toggleModal} PrepareAddToCart={PrepareAddToCart} cart={cart} products={products} addedToCart={addedToCart} wishlist={wishlist} showModal={showModal} />
             </Route> 
             <Route exact path="/cart">
                 <Cart toggleModal={toggleModal} deletedFromCart={deletedFromCart} delFromCart={delFromCart} PrepareDelFromCart={PrepareDelFromCart} products={products} cart={cart} showModal={showModal} />
             </Route> 
             <Route exact path="/wishlist">
-                <WishList />
+                <WishList toggleWishlist={toggleWishlist} products={products} wishlist={wishlist}  />
             </Route> 
             <Route path="*">
                 <NotFound />

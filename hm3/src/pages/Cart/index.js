@@ -22,7 +22,7 @@ const Cart = (props) => {
                     products={cartList}
                     cart={cart}
                     addToCart={PrepareDelFromCart}
-                    addToWishlist={PrepareDelFromCart}
+                    toggleWishlist={PrepareDelFromCart}
                 />
             )}
             {showModal && (
