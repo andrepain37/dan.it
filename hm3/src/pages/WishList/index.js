@@ -14,7 +14,7 @@ const Cart = (props) => {
 
         <>
             <h1>you're wishlist</h1>
-            {wishlist && (
+            {!!wishlist.length && (
                 <ProductList
                     forWishList={true}
                     products={wishList}
@@ -23,6 +23,7 @@ const Cart = (props) => {
                     toggleWishlist={toggleWishlist}
                 />
             )}
+            {!wishlist.length && <h2 className="empty-text">Empty wishlist :(</h2>}
         </>
     );
 };

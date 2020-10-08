@@ -41,6 +41,10 @@ h1{
   border: 1px dashed $black;
   padding: 10px;
 }
+.empty-text{
+  color: $black;
+  text-align: center;
+}
 .modal{
   display: flex;
   align-items: center;
@@ -182,6 +186,34 @@ h1{
     ));
     &_image{
       position: relative;
+      &--close{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        cursor: pointer;
+        transition: .3s;
+        right: 10px;
+        top: 10px;
+        &:hover{
+          transform: rotate(90deg);
+        }
+        &:after,
+        &:before{
+          position: absolute;
+          top: 0;
+          left: 9px;
+          content: ' ';
+          height: 20px;
+          width: 2px;
+          background-color: #222;
+        }
+        &:after{
+          transform: rotate(-45deg);
+        }
+        &:before{
+          transform: rotate(45deg);
+        }
+      }
       &--like{
         width: 20px;
         height: 20px;

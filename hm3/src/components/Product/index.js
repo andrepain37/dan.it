@@ -13,7 +13,7 @@ const Product = (props) => {
 
         if (forCart ) {
             textButton = 'Delete';
-            ButtonAction = <div className="modal-action_window__close" onClick={() => toggleWishlist(id)}></div>  
+            ButtonAction = <div className="product-list_card_image--close" onClick={() => toggleWishlist(id)}></div>  
         } else{
 
             if (forWishList) {

@@ -16,7 +16,7 @@ const Cart = (props) => {
 
         <>
             <h1>you're cart</h1>
-            {cart && (
+            {!!cart.length && (
                 <ProductList
                     forCart={true}
                     products={cartList}
@@ -25,6 +25,7 @@ const Cart = (props) => {
                     toggleWishlist={PrepareDelFromCart}
                 />
             )}
+            {!cart.length && <h2 className="empty-text">Empty cart :(</h2>}
             {showModal && (
                 <Modal
                 header={`Do you want delete ${deletedFromCart.name} from your cart?`}
