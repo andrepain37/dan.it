@@ -1,13 +1,19 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/Button";
 import Modal from "../../components/Modal";
 import ProductList from "../../components/ProductList";
+import { delFromCart, toggleModal } from "../../store/Home/operations";
 
 
-const Cart = (props) => {
+const Cart = () => {
 
+    const dispatch = useDispatch()
 
-    const {toggleModal, deletedFromCart, delFromCart, prepareDelFromCart, cart, products, showModal} = props
+    const products = useSelector(st => st.products)
+    const cart = useSelector(st => st.cart)
+    const showModal = useSelector(st => st.showModal)
+    const deletedFromCart = useSelector(st => st.deletedFromCart)
 
 
     const cartList = products.filter(prod => cart.includes(prod.id))
@@ -21,8 +27,6 @@ const Cart = (props) => {
                     forCart={true}
                     products={cartList}
                     cart={cart}
-                    addToCart={prepareDelFromCart}
-                    toggleWishlist={prepareDelFromCart}
                 />
             )}
             {!cart.length && <h2 className="empty-text">Empty cart :(</h2>}
@@ -31,19 +35,18 @@ const Cart = (props) => {
                 header={`Do you want delete ${deletedFromCart.name} from your cart?`}
                 closeButton={true}
                 cartItem={deletedFromCart}
-                closeModal={() => toggleModal()}
                 actions={
                     <>
-                    <Button
-                        text="Delete"
-                        classes="modal-action__button"
-                        onClick={() => delFromCart(deletedFromCart.id)}
-                    />
-                    <Button
-                        text="Cancel"
-                        classes="modal-action__button"
-                        onClick={() => toggleModal()}
-                    />
+                        <Button
+                            text="Delete"
+                            classes="modal-action__button"
+                            onClick={() => dispatch(delFromCart(deletedFromCart.id))}
+                        />
+                        <Button
+                            text="Cancel"
+                            classes="modal-action__button"
+                            onClick={() => dispatch(toggleModal())}
+                        />
                     </>
                 }
                 />
