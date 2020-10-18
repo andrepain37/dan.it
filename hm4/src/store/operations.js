@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { saveAddedToCart, saveCart, saveDeletedFromCart, saveProducts, saveShowModal, saveWishlist } from '../actions';
+import { saveAddedToCart, saveCart, saveDeletedFromCart, saveProducts, saveShowModal, saveWishlist } from './actions';
 
 export const loadProducts = () => (dispatch) => {
 

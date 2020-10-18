@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CartItem from '../CartItem';
 import { useDispatch } from 'react-redux';
-import { toggleModal } from '../../store/Home/operations';
+import { toggleModal } from '../../store/operations';
 
 const Modal = (props) => {
 

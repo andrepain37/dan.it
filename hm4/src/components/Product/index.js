@@ -3,7 +3,7 @@ import Button from "../Button";
 import PropTypes from "prop-types";
 import Icon from "../Icon";
 import { useDispatch } from "react-redux";
-import { prepareAddToCart, prepareDelFromCart, toggleWishlist } from "../../store/Home/operations";
+import { prepareAddToCart, prepareDelFromCart, toggleWishlist } from "../../store/operations";
 
 const Product = (props) => {
 

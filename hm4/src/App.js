@@ -3,7 +3,7 @@ import "./App.scss";
 import AppRoutes from "./routes/AppRoutes";
 import Header from "./components/Header";
 import { useDispatch } from "react-redux";
-import { loadProducts } from "./store/Home/operations";
+import { loadProducts } from "./store/operations";
 
 const App = () => {
 
