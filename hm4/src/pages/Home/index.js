@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/Button";
 import Modal from "../../components/Modal";
 import ProductList from "../../components/ProductList";
-import { addToCart, toggleModal, toggleWishlist } from "../../store/Home/operations";
+import { addToCart, toggleModal, toggleWishlist } from "../../store/operations";
 
 
 const Home = () => {
