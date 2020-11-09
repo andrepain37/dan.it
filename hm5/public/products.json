@@ -1,0 +1,61 @@
+[{
+    "id": 1,
+    "name": "Product 1",
+    "image": "https://picsum.photos/400?image=314",
+    "color": "yellow",
+    "price": "3662.55"
+}, {
+    "id": 2,
+    "name": "The best food in that universe",
+    "image": "https://picsum.photos/400?image=490",
+    "color": "tomato",
+    "price": "1047.86"
+}, {
+    "id": 3,
+    "name": "Product 3",
+    "image": "https://picsum.photos/400?image=969",
+    "color": "blue",
+    "price": "1550.21"
+}, {
+    "id": 4,
+    "name": "Product 4",
+    "image": "https://picsum.photos/400?image=874",
+    "color": "green",
+    "price": "2628.87"
+}, {
+    "id": 5,
+    "name": "Product 5",
+    "image": "https://picsum.photos/400?image=914",
+    "color": "yellow",
+    "price": "3430.03"
+}, {
+    "id": 6,
+    "name": "Product 6",
+    "image": "https://picsum.photos/400?image=269",
+    "color": "purple",
+    "price": "2931.00"
+}, {
+    "id": 7,
+    "name": "Product 7",
+    "image": "https://picsum.photos/400?image=919",
+    "color": "brown",
+    "price": "2661.22"
+}, {
+    "id": 8,
+    "name": "Product 8",
+    "image": "https://picsum.photos/400?image=569",
+    "color": "white",
+    "price": "3391.75"
+}, {
+    "id": 9,
+    "name": "Product 9",
+    "image": "https://picsum.photos/400?image=406",
+    "color": "orange",
+    "price": "2465.43"
+}, {
+    "id": 10,
+    "name": "Product 10",
+    "image": "https://picsum.photos/400?image=718",
+    "color": "red",
+    "price": "2743.02"
+}]
