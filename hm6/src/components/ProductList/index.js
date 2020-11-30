@@ -41,7 +41,6 @@ ProductList.propTypes = {
   products: PropTypes.array.isRequired,
   addToCart: PropTypes.func.isRequired,
   toggleWishlist: PropTypes.func.isRequired,
-  wishlist: PropTypes.array.isRequired,
   forCart: PropTypes.bool,
   forWishList: PropTypes.bool,
 };

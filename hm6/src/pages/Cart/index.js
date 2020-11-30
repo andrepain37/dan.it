@@ -46,7 +46,7 @@ const Cart = (props) => {
                     <Input classes="required" label="You're lastname" type='text' placeholder="You're lastname" name='lastname' />
                     <Input classes="required" label="You're age" type='number' placeholder="You're age" name='age' min='14' />
                     <Input classes="required" label="You're shipping address" type='text' placeholder="You're shipping address" name='shipping_address' />
-                    <Input classes="required" label="You're phone" type='telephone' placeholder="You're phone" name='phone' />
+                    <Input classes="required" label="You're phone" type='tel' placeholder="You're phone" name='phone' />
                     <div className="cart-submit"> 
                         <button type='submit' disabled={props.isSubmitting}>Submit</button>
                     </div>
@@ -94,11 +94,9 @@ export default connect(null, mapDispatchToProps)(withFormik({
         phone: ''
     }),
     handleSubmit: (values, {props, setSubmitting }) => {
-        setTimeout(() => {
-            props.clearCartLog(values);
-   
-          setSubmitting(false);
-        }, 1000);
+        props.clearCartLog(values);
+        setSubmitting(false);
+    
    
     },
     validationSchema: schema

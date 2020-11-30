@@ -20,13 +20,14 @@ const Home = () => {
 
         <>
             <h1>bestsellers</h1>
-            {products && (
+            {!!products.length && (
                 <ProductList
                 products={products}
                 addToCart={addToCart}
                 toggleWishlist={toggleWishlist}
                 />
             )}
+            {!products.length && <div className="empty-text">Our warehouse is empty</div>}
             {showModal && (
                 <Modal
                     header={`Do you want to add ${addedToCart.name} to your cart?`}

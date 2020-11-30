@@ -89,8 +89,6 @@ Product.propTypes = {
     PropTypes.string.isRequired,
     PropTypes.number.isRequired,
   ]),
-  addToCart: PropTypes.func.isRequired,
-  toggleWishlist: PropTypes.func.isRequired,
   inWish: PropTypes.bool,
   inCart: PropTypes.bool,
 };
