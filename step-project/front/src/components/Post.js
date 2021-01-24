@@ -60,7 +60,8 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative'
   },
   formodal: {
-    flex: 1
+    flex: 1,
+    alignItems: 'flex-end'
   }
 }));
 

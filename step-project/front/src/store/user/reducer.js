@@ -11,11 +11,12 @@ const user = (state = initialState, action) => {
             localStorage.setItem('isAuth', true);
             return {
                 user_info,
-                isLogin: true
+                isLogin: true,
+                isAuth: true
             }
         case 'SEND_LOGOUT':
             localStorage.removeItem('isAuth');
-            return {session_id: null, user_info: [], isLogin: false}
+            return {user_info: [], isLogin: false, isAuth: false}
         case 'SET_AVATAR':
             return {...state, user_info: {...state.user_info, image: action.payload}}
         default:

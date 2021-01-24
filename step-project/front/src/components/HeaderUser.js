@@ -4,7 +4,7 @@ import axios from 'axios';
 import alertify from 'alertifyjs';
 import Loader from './Loader';
 import { Avatar, Button, Typography } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { subscribeAction } from '../store/subs/operations';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,6 +31,8 @@ function HeaderUser({userId}) {
     const [userInfo, setUserInfo] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isSub, setIsSub] = useState(false);
+
+    const user_info = useSelector(st => st.user.user_info)
 
     const getUserInfo = (userId) => {
         axios.post('/subs/info', {userId}).then((res) => {
@@ -92,6 +94,7 @@ function HeaderUser({userId}) {
                 <Typography variant="h3">
                     {nickname}
                 </Typography>
+                {user_info._id !== userId &&
                 <Button 
                     variant="contained" 
                     color="secondary"
@@ -99,6 +102,7 @@ function HeaderUser({userId}) {
                 >
                     {textSub}
                 </Button>
+                }
             </div>
         </section>
     );

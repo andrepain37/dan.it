@@ -49,25 +49,24 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function BodyGridUser({userId}) {
+function BodyGridUser({userId, togglePoint}) {
   const classes = useStyles();
 
     const [userPosts, setUserPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
 
-    const getUserPosts = (userId) => {
-        axios.post('/users/posts', {userId}).then((res) => {
-            if (!!res.data) {
-                if(!!res.data['error']){
-                    alertify.error(res.data['error']);
-                }
-                if(!!res.data['posts']){
-                    setUserPosts(res.data['posts']);
-                    setIsLoading(false)
-                }
+    const getUserPosts = async (userId) => {
+        const res = await axios.post('/users/posts', {userId});
+        if (!!res.data) {
+            if(!!res.data['error']){
+                alertify.error(res.data['error']);
             }
-        });
+            if(!!res.data['posts']){
+                setUserPosts(res.data['posts']);
+                setIsLoading(false)
+            }
+        }
     }
 
     const dispatch = useDispatch();
@@ -77,17 +76,21 @@ function BodyGridUser({userId}) {
     }
 
     useEffect(() => {
-        getUserPosts(userId)
-    }, [userId]);
+        if (isLoading) {
+            getUserPosts(userId)
+        }
+    }, [userId, isLoading]);
 
     if (isLoading) {
         return <Loader />
     }
 
+    const cols = togglePoint ? 3 : 2;
+
     return (
         <div className={classes.root}>
         {!!userPosts.length && 
-        <GridList cols={3} className={classes.list}>
+        <GridList cols={cols} className={classes.list}>
             {userPosts.map((post) => (
             <GridListPhoto key={post._id} cols={1} onClick={() => getPost(post._id)}>
                 <div className={classes.details}>
@@ -99,7 +102,7 @@ function BodyGridUser({userId}) {
             ))}
         </GridList>
         }
-        {!userPosts.length && 'У пользователя ещё нет постов!'}
+        {!userPosts.length && <h4 className="empty">У пользователя ещё нет постов!</h4>}
         </div>
     );
 }

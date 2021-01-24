@@ -7,14 +7,24 @@ import Loader from '../components/Loader';
 
 const useStyles = makeStyles((theme) => ({
     wrap: {
-      display: 'flex'
+        display: 'flex',
+        [theme.breakpoints.down('620')]: {
+            flexDirection: 'column',
+        }
     },
+    wrapComments: {
+        display: 'block',
+        [theme.breakpoints.down('620')]: {
+            display: 'none',
+        }
+    }
 }));
 
 function PostDetails() {
     const [isLoading, setIsLoading] = useState(true);
     const postDetails = useSelector(st => st.posts.activePostDetails);
     const classes = useStyles();
+
 
     useEffect(() => {
         if (postDetails) {
@@ -28,7 +38,9 @@ function PostDetails() {
 
     return (
         <Post {...postDetails} props_classes={classes.wrap}> 
-            <Comments postId={postDetails.id} lastComments={postDetails.lastComments} isAllComments={true} />
+            <div className={classes.wrapComments}>
+                <Comments scroll postId={postDetails.id} lastComments={postDetails.lastComments} isAllComments={true} />
+            </div>
         </Post>
     );
 }

@@ -99,6 +99,10 @@ header{
       opacity: .7;
     }
   }
+  &-empty{
+    text-align: center;
+    font-weight: 900;
+  }
   &-comment{
     padding: 5px 0;
     &--name{
@@ -181,7 +185,7 @@ header{
     }
   }
   .comments_users{
-    overflow: auto;
+    overflow-x: auto;
     max-height: 600px;
   }
 }

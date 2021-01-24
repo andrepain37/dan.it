@@ -67,14 +67,16 @@ function Header() {
             
             <div className="header-nav-info">
                 {isLogin &&
-                <>
-                    <Avatar
-                        aria-label="recipe" 
-                        src={user_info.image}
-                        className="avatar"
-                    >
-                        {user_info.nickname[0]}
-                    </Avatar>
+                <>  
+                    <Link to={'/user/' + user_info._id} >
+                        <Avatar
+                            aria-label="recipe" 
+                            src={user_info.image}
+                            className="avatar"
+                        >
+                            {user_info.nickname[0]}
+                        </Avatar>
+                    </Link>
                     <Menu
                         id="simple-menu"
                         anchorEl={anchorEl}
