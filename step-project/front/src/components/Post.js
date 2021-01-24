@@ -12,6 +12,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import Moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import { likePost } from '../store/posts/operations';
+import { Link } from 'react-router-dom';
 require('moment/locale/ru');
 
 
@@ -126,20 +127,25 @@ export default function Post(props) {
     togglecountLike(like);
   };
 
+  const avatar = <Avatar
+                    aria-label="recipe" 
+                    src={user.image}
+                    className="avatar"
+                  >
+                    {user.nickname[0]}
+                  </Avatar>;
+  let avatarComponent = false;
+
+  if (isLogin) {
+    avatarComponent = <Link to={"/user/" + user.id}>{avatar}</Link>
+  }
+
 
   return (
     <Card className={[classes.card, props_classes].join(' ')}>
       <div className={classes.formodal}>
         <CardHeader
-          avatar={        
-            <Avatar
-                aria-label="recipe" 
-                src={user.image}
-                className="avatar"
-            >
-              {user.nickname[0]}
-            </Avatar>
-          }
+          avatar={avatarComponent || avatar}
           title={user.nickname}
           subheader={formatDate}
         />

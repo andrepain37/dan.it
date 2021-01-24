@@ -76,10 +76,8 @@ function BodyGridUser({userId, togglePoint}) {
     }
 
     useEffect(() => {
-        if (isLoading) {
-            getUserPosts(userId)
-        }
-    }, [userId, isLoading]);
+        getUserPosts(userId)
+    }, [userId]);
 
     if (isLoading) {
         return <Loader />
